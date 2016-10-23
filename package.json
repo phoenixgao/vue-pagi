@@ -1,0 +1,12 @@
+{
+  "name": "vue-pagi",
+  "version": "1.0.0",
+  "description": "A paginator component for vuejs 2.x",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:phoenixgao/vue-pagi.git",
+    "type": "git"
+  },
+  "author": "phoenix.x.gao@gmail.com",
+  "license": "MIT"
+}
