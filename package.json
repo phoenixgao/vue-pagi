@@ -8,5 +8,23 @@
     "type": "git"
   },
   "author": "phoenix.x.gao@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "src/",
+    "dist/",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build/build.js",
+    "release": "bash build/release.sh",
+    "test": "yarn run test:unit",
+    "test:unit": "node tests/unit.js"
+  },
+  "devDependencies": {
+    "ora": "^0.3.0",
+    "shelljs": "^0.7.4",
+    "webpack": "^1.13.2"
+  }
 }
