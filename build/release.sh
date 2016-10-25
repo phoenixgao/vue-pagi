@@ -16,7 +16,7 @@ then
   # yarn version --new-version $VERSION
 
   # publish
-  git push origin refs/tags/v$VERSION
-  git push
+  # git push origin refs/tags/v$VERSION
+  # git push
   yarn publish
 fi
