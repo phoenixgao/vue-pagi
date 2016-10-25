@@ -13,10 +13,10 @@ then
   # commit
   git add -A
   git commit -m "[build] $VERSION"
-  npm version $VERSION --message "[release] $VERSION"
+  # yarn version --new-version $VERSION
 
   # publish
   git push origin refs/tags/v$VERSION
-  git push origin master
-  npm publish
+  git push
+  yarn publish
 fi
