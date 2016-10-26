@@ -241,6 +241,17 @@ module.exports = __vue_exports__
                 }
             }
 
+            if (this.pagination.current_page >= this.pagination.total_pages - this.config.noEllipsisNum + 1) {
+                for (var i = Math.max(cursor + 1, Math.min(this.pagination.total_pages - this.config.noEllipsisNum + 1, this.pagination.current_page - this.config.offset)); i <= this.pagination.total_pages; i++) {
+                    pages.push({
+                        text: i,
+                        type: 'link'
+                    });
+
+                    cursor = i;
+                }
+            }
+
             for (var i = Math.max(cursor + 1, this.pagination.current_page - this.config.offset); i <= Math.min(this.pagination.total_pages, this.pagination.current_page + this.config.offset); i++) {
                 pages.push({
                     text: i,
@@ -383,6 +394,7 @@ module.exports={render:function (){with(this) {
   }, [_s(config.previousText)])])]), " ", _l((pages), function(page) {
     return _h('page-nth', {
       attrs: {
+        "onclick": changePage,
         "current": (page.text === pagination.current_page),
         "type": page.type,
         "text": page.text
@@ -479,6 +491,8 @@ module.exports={render:function (){with(this) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Paginator_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Paginator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Paginator_vue__);
 
+
+/* harmony default export */ exports["default"] = __WEBPACK_IMPORTED_MODULE_0__Paginator_vue___default.a;
 
 /***/ }
 /******/ ]);
