@@ -1,6 +1,6 @@
-# Vue Pagi
-
-> A paginator/pagination component for Vue.js 2.x
+# Vuejs Pagination Component
+`package name: vue-pagi`
+> A pagination component for Vue.js 2.x
 
 ## Build Setup
 
