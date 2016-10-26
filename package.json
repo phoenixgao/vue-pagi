@@ -2,7 +2,7 @@
     "name": "vue-pagi",
     "version": "0.0.2",
     "description": "A paginator component for vuejs 2.x",
-    "main": "dist/vue-pagi.js",
+    "main": "dist/js/vue-pagi.js",
     "repository": {
         "url": "git@github.com:phoenixgao/vue-pagi.git",
         "type": "git"
