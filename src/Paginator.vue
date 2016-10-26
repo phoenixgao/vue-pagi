@@ -11,10 +11,8 @@
                 </a>
             </li>
 
-            <li v-for="page in pages" :class="{ 'active': page.text === pagination.current_page }">
-                <a v-show="page.type === 'pagi'" v-on:click.prevent="changePage(page.text)">{{ page.text }}</a>
-                <a v-show="page.type === 'ellipsis'">{{ page.text }}</a>
-            </li>
+            <page-nth v-for="page in pages" :onclick="changePage" :current="(page.text === pagination.current_page)" :type="page.type" :text="page.text">
+            </page-nth>
 
             <li v-show="showNext()" :class="{ 'disabled' : pagination.current_page === pagination.total_pages || pagination.total_pages === 0 }">
                 <span v-show="pagination.current_page === pagination.total_pages || pagination.total_pages === 0">
@@ -30,7 +28,12 @@
 </template>
 
 <script>
+import PageNth from './PageNth.vue'
+
 export default {
+    components: {
+        'page-nth': PageNth
+    },
     props: {
         pagination: {
             type: Object,
@@ -93,7 +96,7 @@ export default {
                 for (var i = 1; i <= Math.min(this.pagination.current_page, this.config.beginNum); i ++) {
                     pages.push({
                         text: i,
-                        type: 'pagi'
+                        type: 'link'
                     });
 
                     cursor = i;
@@ -103,7 +106,7 @@ export default {
                     for (var i = cursor + 1; i <= Math.min(this.pagination.total_pages, this.config.noEllipsisNum); i ++) {
                         pages.push({
                             text: i,
-                            type: 'pagi'
+                            type: 'link'
                         });
 
                         cursor = i;
@@ -118,10 +121,21 @@ export default {
                 }
             }
 
+            if (this.pagination.current_page >= this.pagination.total_pages - this.config.noEllipsisNum + 1) {
+                for (var i = Math.max(cursor + 1, Math.min(this.pagination.total_pages - this.config.noEllipsisNum + 1, this.pagination.current_page - this.config.offset)); i <= this.pagination.total_pages; i ++) {
+                    pages.push({
+                        text: i,
+                        type: 'link'
+                    });
+
+                    cursor = i;
+                }
+            }
+
             for (var i = Math.max(cursor + 1, this.pagination.current_page - this.config.offset); i <= Math.min(this.pagination.total_pages, this.pagination.current_page + this.config.offset); i ++) {
                 pages.push({
                     text: i,
-                    type: 'pagi'
+                    type: 'link'
                 });
 
                 cursor = i;
@@ -138,7 +152,7 @@ export default {
                 for (var i = Math.max(cursor + 1, this.pagination.total_pages - this.config.endNum + 1); i <= this.pagination.total_pages; i ++) {
                     pages.push({
                         text: i,
-                        type: 'pagi'
+                        type: 'link'
                     });
 
                     cursor = i;

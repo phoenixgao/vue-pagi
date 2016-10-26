@@ -11,12 +11,12 @@ then
   VERSION=$VERSION yarn run build
 
   # commit
-  git add -A
-  git commit -m "[build] $VERSION"
+  # git add -A
+  # git commit -m "[build] $VERSION"
   # yarn version --new-version $VERSION
 
   # publish
   # git push origin refs/tags/v$VERSION
   # git push
-  yarn publish
+  # yarn publish
 fi
