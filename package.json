@@ -1,6 +1,6 @@
 {
     "name": "vue-pagi",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A paginator component for vuejs 2.x",
     "main": "dist/js/vue-pagi.js",
     "repository": {
