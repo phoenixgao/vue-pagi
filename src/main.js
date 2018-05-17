@@ -1,3 +1,3 @@
 import Paginator from './Paginator.vue'
 
-export {Paginator}
+module.exports = Paginator

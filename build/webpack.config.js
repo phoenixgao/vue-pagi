@@ -6,7 +6,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-pagi.js'
+    filename: 'vue-pagi.js',
+    library: 'Paginator',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
